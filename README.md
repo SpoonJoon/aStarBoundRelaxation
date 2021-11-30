@@ -1,3 +1,3 @@
 # aStarBoundRelaxation
 
-** stephen curry, dan tierny, joonhwan yoo
+* stephen curry, dan tierny, joonhwan yoo
