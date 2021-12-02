@@ -8,7 +8,7 @@
 
 struct Node {
 	size_t i;	// Index of this node (not related to order, just for ID)
-	std::vector<std::pair<Node*, double>> successors;
+	std::vector<std::pair<Node*, double> > successors;
 };
 
 void reconstructPath(Node* predecessors[], Node* current) {
