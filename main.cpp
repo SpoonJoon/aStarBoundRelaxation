@@ -11,6 +11,13 @@ struct Node {
 	std::vector<std::pair<Node*, double> > successors;
 };
 
+template<class T, class C = std::vector<T>, class P = std::less<typename C::value_type> >
+struct MyPriorityQueue : std::priority_queue<T,C,P> {
+   typename C::iterator begin() { return std::priority_queue<T, C, P>::c.begin(); }
+   typename C::iterator end() { return std::priority_queue<T, C, P>::c.end(); }
+};
+
+
 void reconstructPath(Node* predecessors[], Node* current) {
 	// From wikipedia. Correctness not guaranteed
 	// declare the path and initialize it with the current node
@@ -22,7 +29,8 @@ void reconstructPath(Node* predecessors[], Node* current) {
 
 
 void aStar(Node& startPt, Node& goalPt, Node nodes[], std::size_t n, std::function<double(Node&)> heuristic) {
-	std::priority_queue<Node*> openSet;
+	//std::priority_queue<Node*> openSet;
+	MyPriorityQueue<Node*> openSet;
 	openSet.push(&startPt);
 
 	// Stores the preceding node for each node on the most optimal path thus far
@@ -64,6 +72,17 @@ void aStar(Node& startPt, Node& goalPt, Node nodes[], std::size_t n, std::functi
 
 int main(int argc, char** argv) {
 
+	MyPriorityQueue<Node*> openSet;	
+	Node node1, node2, node3;
+	node1.i = 2;
+	node2.i = 1;
+	node3.i = 4;
+	openSet.push(&node1);
+	openSet.push(&node2);
+	openSet.push(&node3);
 
-
+	for (auto itr = openSet.begin(); itr!=openSet.end(); itr++)
+	{
+		std::cout << (*itr)->i << std::endl;
+	}
 }
