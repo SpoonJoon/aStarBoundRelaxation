@@ -1,0 +1,8 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/spoonjoon/Desktop/classes/cs375/aStar/aStarBoundRelaxation'
+g++ -c -Wall -std=c++11 -c astar.cpp astar_graph.cpp main.cpp
+g++ -c -Wall -std=c++11 -c astar.cpp astar_graph.cpp main.cpp
+g++ astar.o astar_graph.o main.o -o cs375Stars
+ 
+make: Leaving directory `/Users/spoonjoon/Desktop/classes/cs375/aStar/aStarBoundRelaxation'
+ 

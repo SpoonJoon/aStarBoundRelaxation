@@ -14,7 +14,7 @@ static void reconstructPath(std::vector<Coord>& bestPath, Grid& inputGraph, cons
 // Heuristic function. Currently uses Manhattan Distance (movement in 4 directions)
 // If we allow diagonal directions, then this must update
 static float h(Coord& end, Coord& other) {
-	return abs(other.x - end.x) + abs(other.y - end.y);
+	return abs((float)(other.x - end.x)) + abs((float)(other.y - end.y));
 }
 
 static bool evalCell(Grid& inputGraph, Coord& current, Coord& neighbor, Coord& end) {
