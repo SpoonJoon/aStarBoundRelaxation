@@ -1,5 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/spoonjoon/Desktop/classes/cs375/aStar/aStarBoundRelaxation'
-make: Nothing to be done for `all'.
-make: Leaving directory `/Users/spoonjoon/Desktop/classes/cs375/aStar/aStarBoundRelaxation'
- 
