@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 static void reconstructPath(std::vector<Coord>& bestPath, Grid& inputGraph, const Coord& start, Coord end) {
 	while (!(end == start)) {
@@ -13,9 +14,8 @@ static void reconstructPath(std::vector<Coord>& bestPath, Grid& inputGraph, cons
 
 // Heuristic function. Currently uses Manhattan Distance (movement in 4 directions)
 // If we allow diagonal directions, then this must update
-static float h(Coord& end, Coord& other) {
-	return 0;
-	return abs((float)(other.x - end.x)) + abs((float)(other.y - end.y));
+static unsigned int h(Coord& end, Coord& other) {
+	return (std::max(other.x, end.x) - std::min(other.x, end.x)) + (std::max(other.y, end.y) - std::min(other.y, end.y));
 }
 
 static bool evalCell(Grid& inputGraph, Coord& current, Coord& neighbor, Coord& end) {
@@ -24,7 +24,7 @@ static bool evalCell(Grid& inputGraph, Coord& current, Coord& neighbor, Coord& e
 		Cell& n = *inputGraph.getCell(neighbor);
 		if (!n.blocked) {
 			// Assuming each grid movement is 1 distance unit and movement is only in 4 directions (up down left right)
-			float newDistance = c.distanceFromStart + 1.0;
+			double newDistance = c.distanceFromStart + 1.0;
 			if (newDistance < n.distanceFromStart) {
 				n.predecessor = current;
 				n.distanceFromStart = newDistance;
