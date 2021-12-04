@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 	}
 
 	const int xSize = 100;
-	const int ySize = 50;
+	const int ySize = 100;
 
     Grid grid(xSize, ySize);
     for (int x = 0; x < xSize; x++) {
