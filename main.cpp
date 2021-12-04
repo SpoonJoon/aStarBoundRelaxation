@@ -17,9 +17,9 @@ int main(int argc, char** argv) {
 	for (auto i:temp){
 		if(i == ' '){
 			flag =1;
-		} else if(i == 0){
+		} else if(i == '0'){
 			x+=i;
-		} else if(i ==1){
+		} else if(i =='1'){
 			y+=i;
 		}
 
@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
 			if(stoi(temp) == 0){
 			nodes[i][j] = false;
 			} else {
-				nodes[i][j] = true;
+			nodes[i][j] = true;
 			}
 		
 		}
