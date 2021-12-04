@@ -1,3 +1,4 @@
 # aStarBoundRelaxation
 
-* stephen curry, dan tierny, joonhwan yoo
+# Stephen Black, Joonhwan Yoo, Daniel Tierney
+
