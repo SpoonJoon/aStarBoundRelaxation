@@ -14,6 +14,7 @@ static void reconstructPath(std::vector<Coord>& bestPath, Grid& inputGraph, cons
 // Heuristic function. Currently uses Manhattan Distance (movement in 4 directions)
 // If we allow diagonal directions, then this must update
 static float h(Coord& end, Coord& other) {
+	return 0;
 	return abs((float)(other.x - end.x)) + abs((float)(other.y - end.y));
 }
 
@@ -37,6 +38,9 @@ static bool evalCell(Grid& inputGraph, Coord& current, Coord& neighbor, Coord& e
 
 void aStarSearch(Grid& inputGraph, Coord start, Coord end, std::vector<Coord>& bestPath) {
 
+	inputGraph.getCell(start)->distanceFromStart = 0;
+	inputGraph.getCell(start)->estDistanceToEnd = h(end, start);
+
 	// This vector should be changed to a priority queue for better performance
 	std::vector<Coord> openSet;
 	openSet.push_back(start);
@@ -51,7 +55,7 @@ void aStarSearch(Grid& inputGraph, Coord start, Coord end, std::vector<Coord>& b
 		}
 
 		if (c == end) {
-			// reconstruct path
+			reconstructPath(bestPath, inputGraph, start, end);
 			break;
 		}
 

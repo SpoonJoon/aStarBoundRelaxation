@@ -13,7 +13,7 @@ struct Coord {
 struct Cell {
 	bool blocked;
 	Coord predecessor;
-	double distanceFromStart = 0;
+	double distanceFromStart = std::numeric_limits<double>::infinity();
 	double estDistanceToEnd = std::numeric_limits<double>::infinity();
 };
 
