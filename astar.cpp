@@ -16,6 +16,7 @@ static void reconstructPath(std::vector<Coord>& bestPath, Grid& inputGraph, cons
 // If we allow diagonal directions, then this must update
 static unsigned int h(Coord& end, Coord& other) {
 	return (std::max(other.x, end.x) - std::min(other.x, end.x)) + (std::max(other.y, end.y) - std::min(other.y, end.y));
+	//return 0;
 }
 
 static bool evalCell(Grid& inputGraph, Coord& current, Coord& neighbor, Coord& end) {
@@ -59,7 +60,12 @@ void aStarSearch(Grid& inputGraph, Coord start, Coord end, std::vector<Coord>& b
 			break;
 		}
 
-		openSet.erase(std::remove(openSet.begin(), openSet.end(), c), openSet.end());
+		for (auto it = openSet.begin(); it != openSet.end(); it++) {
+			if (*it == c) {
+				openSet.erase(it);
+				break;
+			}
+		}
 
 		const static int xOffsets[] = {-1, 0, 0, 1};
 		const static int yOffsets[] = {0, -1, 1, 0};
