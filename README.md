@@ -1,4 +1,4 @@
 # aStarBoundRelaxation
 
-# Stephen Black, Joonhwan Yoo, Daniel Tierney
+Stephen Black, Joonhwan Yoo, Daniel Tierney
 
